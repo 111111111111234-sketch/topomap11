@@ -1,0 +1,32 @@
+[
+  {
+    "case": "direct",
+    "passed": true,
+    "arrived": true,
+    "physics": "MuJoCo mj_step, force-limited planar actuator proxy; NOT Go2 gait",
+    "perception": "RGB-only red-marker detector; NOT YOLO or VLM inference",
+    "mapping": "depth ray integration; flat-floor footprint prior; no scene-geometry map",
+    "localization": "ideal simulator pose; SLAM localization NOT evaluated",
+    "semantic_prediction": "real HGR heuristic mode; no paid API calls",
+    "controller": "LightNav vln_mpc MPCController/CasADi/IPOPT",
+    "transport": "real loopback HTTP with Observation v1 JPEG/depth/map payloads",
+    "ros2": "not part of this Mac run",
+    "initial_target_distance_m_eval_only": 4.6690470119715,
+    "final_target_distance_m_eval_only": 1.4475881407191213,
+    "travelled_m": 3.236457457302156,
+    "stop_drift_m": 0.02534149592635274,
+    "contact_samples": 0,
+    "max_penetration_m": 0.0,
+    "physics_steps": 5860,
+    "simulation_s": 29.299999999998455,
+    "wall_s": 4.049780082998041,
+    "planner_states": {
+      "RUNNING": 42,
+      "ARRIVED": 1
+    },
+    "fault_s": null,
+    "first_zero_delay_s": null,
+    "known_cells": 4452,
+    "hgr_hypothesis_nodes_created": 0
+  }
+]
