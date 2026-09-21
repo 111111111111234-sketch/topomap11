@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "topomap-go2"
+version = "0.1.0"
+description = "ROS 2 Go2 deployment backend for topomap"
+requires-python = ">=3.9"
+dependencies = ["numpy>=1.24,<2", "scipy>=1.10,<1.14", "Pillow>=10,<12"]
+
+[project.optional-dependencies]
+server = ["torch>=2.0,<3", "ultralytics==8.2.31", "openai>=1.35,<2", "omegaconf==2.3.0", "httpx>=0.27,<0.28", "open-clip-torch==2.26.1"]
+test = ["pytest>=8,<9"]
+sim = ["mujoco==3.3.7", "casadi>=3.7,<4", "torch==2.5.1", "openai>=1.35,<2", "omegaconf==2.3.0", "httpx>=0.27,<0.28", "imageio>=2.34", "imageio-ffmpeg>=0.5"]
+# Native dependencies for porting the ORIGINAL HGR pipeline on Apple Silicon.
+# Habitat and the compiled PyTorch3D extension are separate platform boundaries;
+# installing this extra alone does NOT provide a complete navigation backend.
+hgr-mac = ["torch==2.5.1", "torchvision==0.20.1", "ultralytics==8.2.31", "open-clip-torch==2.26.1", "open3d==0.18.0", "faiss-cpu==1.8.0.post1", "opencv-python==4.10.0.84", "opencv-python-headless==4.10.0.84", "supervision==0.21.0", "scikit-learn==1.4.2", "scikit-image==0.22.0", "numba>=0.60,<0.62", "numpy-quaternion>=2023.0.0", "HiPart==1.0.4", "openai>=1.35,<2", "omegaconf==2.3.0", "httpx>=0.27,<0.28"]
+
+[project.scripts]
+topomap-go2-serve = "topomap_deploy.server:main"
+topomap-sim = "topomap_deploy.simulation:main"
+
+[tool.setuptools.packages.find]
+include = ["topomap_deploy*", "src*"]
