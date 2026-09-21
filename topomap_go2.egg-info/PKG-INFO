@@ -1,0 +1,44 @@
+Metadata-Version: 2.4
+Name: topomap-go2
+Version: 0.1.0
+Summary: ROS 2 Go2 deployment backend for topomap
+Requires-Python: >=3.9
+Requires-Dist: numpy<2,>=1.24
+Requires-Dist: scipy<1.14,>=1.10
+Requires-Dist: Pillow<12,>=10
+Provides-Extra: server
+Requires-Dist: torch<3,>=2.0; extra == "server"
+Requires-Dist: ultralytics==8.2.31; extra == "server"
+Requires-Dist: openai<2,>=1.35; extra == "server"
+Requires-Dist: omegaconf==2.3.0; extra == "server"
+Requires-Dist: httpx<0.28,>=0.27; extra == "server"
+Requires-Dist: open-clip-torch==2.26.1; extra == "server"
+Provides-Extra: test
+Requires-Dist: pytest<9,>=8; extra == "test"
+Provides-Extra: sim
+Requires-Dist: mujoco==3.3.7; extra == "sim"
+Requires-Dist: casadi<4,>=3.7; extra == "sim"
+Requires-Dist: torch==2.5.1; extra == "sim"
+Requires-Dist: openai<2,>=1.35; extra == "sim"
+Requires-Dist: omegaconf==2.3.0; extra == "sim"
+Requires-Dist: httpx<0.28,>=0.27; extra == "sim"
+Requires-Dist: imageio>=2.34; extra == "sim"
+Requires-Dist: imageio-ffmpeg>=0.5; extra == "sim"
+Provides-Extra: hgr-mac
+Requires-Dist: torch==2.5.1; extra == "hgr-mac"
+Requires-Dist: torchvision==0.20.1; extra == "hgr-mac"
+Requires-Dist: ultralytics==8.2.31; extra == "hgr-mac"
+Requires-Dist: open-clip-torch==2.26.1; extra == "hgr-mac"
+Requires-Dist: open3d==0.18.0; extra == "hgr-mac"
+Requires-Dist: faiss-cpu==1.8.0.post1; extra == "hgr-mac"
+Requires-Dist: opencv-python==4.10.0.84; extra == "hgr-mac"
+Requires-Dist: opencv-python-headless==4.10.0.84; extra == "hgr-mac"
+Requires-Dist: supervision==0.21.0; extra == "hgr-mac"
+Requires-Dist: scikit-learn==1.4.2; extra == "hgr-mac"
+Requires-Dist: scikit-image==0.22.0; extra == "hgr-mac"
+Requires-Dist: numba<0.62,>=0.60; extra == "hgr-mac"
+Requires-Dist: numpy-quaternion>=2023.0.0; extra == "hgr-mac"
+Requires-Dist: HiPart==1.0.4; extra == "hgr-mac"
+Requires-Dist: openai<2,>=1.35; extra == "hgr-mac"
+Requires-Dist: omegaconf==2.3.0; extra == "hgr-mac"
+Requires-Dist: httpx<0.28,>=0.27; extra == "hgr-mac"

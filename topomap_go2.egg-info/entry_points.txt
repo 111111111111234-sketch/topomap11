@@ -1,0 +1,3 @@
+[console_scripts]
+topomap-go2-serve = topomap_deploy.server:main
+topomap-sim = topomap_deploy.simulation:main
