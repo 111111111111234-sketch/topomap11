@@ -1,0 +1,18 @@
+topomap_bridge:
+  ros__parameters:
+    server_url: http://127.0.0.1:8060
+    rgb_topic: /camera/color/image_rect
+    depth_topic: /camera/aligned_depth_to_color/image_raw
+    camera_info_topic: /camera/color/camera_info
+    map_topic: /rtabmap/map
+    odom_topic: /odom
+    sync_slop_s: 0.04
+    tf_wait_s: 0.08
+    sensor_timeout_s: 0.6
+    map_timeout_s: 3.0
+    max_result_age_s: 2.0
+    plan_timeout_s: 1.5
+    request_timeout_s: 60.0
+    robot_radius_m: 0.4
+    linear_limit: 0.2
+    angular_limit: 0.4
