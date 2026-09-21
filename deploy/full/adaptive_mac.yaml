@@ -1,0 +1,49 @@
+# Adapters are implemented; models, native runtime and closed loop are UNVALIDATED.
+# User-selected Adaptive-hybrid; inherit the original policy without rewriting it.
+extends: ../../cfg/eval_goatbench_hgr_dual_topo_adaptive_hybrid.yaml
+exp_name: full_topomap_adaptive_mac_framework
+
+full_framework:
+  implementation_status: adapters_implemented_not_runtime_validated
+  execution_enabled: false
+  diagnostic_fallback: false
+  reference_runner: run_goatbench_evaluation.py
+  reference_config: cfg/eval_goatbench_hgr_dual_topo_adaptive_hybrid.yaml
+  observation_frame: map_z_up_camera_optical
+  localization_source: supplied_capture_time_pose
+  # Simulation first; ROS/Go2 must supply the same contracts later.
+  sensor_adapter: topomap_deploy.full.sim_io.MujocoPorts
+  motion_adapter: topomap_deploy.full.sim_io.MujocoPorts
+  adaptive_lifecycle: topomap_deploy.full.lifecycle.OriginalAdaptiveLifecycle
+  scene_adapter: src.scene_goatbench.Scene.from_external
+  model_device: cpu
+  execution_timeout_s: 50.0
+  terminal_tolerance_m: 0.1
+  # Operator-defined volume, never read from simulator mesh/navmesh geometry.
+  map_bounds_xyz_m: [[-8.0, 8.0], [-8.0, 8.0], [0.0, 3.0]]
+  floor_height_m: 0.0
+  max_motion_steps: 100
+  class_names_path: data/scannet200_classes.txt
+  frontier_view_tolerance_deg: 25.0
+  # Optional external semantic scene; retain proxy/x/y/yaw/rgbd actuator contract.
+  # null uses the old primitive fixture, NOT a meaningful YOLO benchmark scene.
+  scene_xml_path: null
+  simulation:
+    dt_s: 0.1
+    v_max: 0.2
+    w_max: 0.4
+    body_radius_m: 0.36
+    sensor_timeout_s: 1.0
+    map_timeout_s: 120.0
+    route_timeout_s: 45.0
+    solver_timeout_s: 1.0
+    scan_views: 12
+    scan_timeout_s: 60.0
+  # Runtime bootstrap must require explicit local model paths and VLM key;
+  # no automatic weight downloads, heuristic replacement, or API calls here.
+  yolo_weights: null
+  sam_weights: null
+  clip_weights: null
+  # YOLO-World's OpenAI CLIP ViT-B/32 text encoder is a separate local checkpoint.
+  yolo_text_weights: null
+  environment_status: installation_interrupted_at_user_request

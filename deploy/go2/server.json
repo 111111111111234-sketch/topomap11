@@ -1,0 +1,25 @@
+{
+  "yolo_weights": "checkpoints/yolov8x-world.pt",
+  "device": "cuda:0",
+  "classes": ["chair", "sofa", "bed", "nightstand", "wardrobe", "toilet", "sink", "shower", "bathtub", "refrigerator", "oven", "stove", "microwave", "tv", "coffee table", "dining table", "desk", "monitor", "bookshelf", "door"],
+  "robot_radius_m": 0.4,
+  "target_confidence": 0.55,
+  "confirmation_frames": 3,
+  "arrival_distance_m": 1.3,
+  "approach_distance_m": 0.9,
+  "path_horizon_m": 1.0,
+  "vlm_model": "qwen3-vl-plus",
+  "vlm_base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+  "vlm_api_key_env": "DASHSCOPE_API_KEY",
+  "hypothesis": {
+    "enable_vlm_hypothesis_prediction": true,
+    "hypothesis_node_top_k_categories": 5,
+    "enable_cascade_deletion": true,
+    "min_dependency_confidence": 0.6,
+    "semantic_residual_threshold": 0.65,
+    "residual_weight_category": 0.5,
+    "residual_weight_feature": 0.0,
+    "residual_weight_objects": 0.5,
+    "enable_vlm_causality_diagnosis": false
+  }
+}
